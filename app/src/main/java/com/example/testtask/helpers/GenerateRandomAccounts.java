@@ -1,18 +1,19 @@
-package com.example.testtask;
+package com.example.testtask.helpers;
 
 import android.util.Log;
+
+import com.example.testtask.models.AccountDetail;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-public class GenerateRandomDetails {
+public class GenerateRandomAccounts {
 
     private static final Random RANDOM = new Random();
 
@@ -25,24 +26,16 @@ public class GenerateRandomDetails {
 
         try {
             List<JSONObject> result = new ArrayList<>();
-            int size = 12;
+            int size = 30;
             for (int i = 0; i < size; i++) {
-                JSONObject userJson = new JSONObject();
-                userJson.put("id", RandomId());
-                userJson.put("firstName", randomString(10));
-                userJson.put("lastName", randomString(8));
+                JSONObject accountJson = new JSONObject();
+                accountJson.put("id", RandomId());
+                accountJson.put("name", randomString(10));
+                accountJson.put("description", randomString(300));
+                accountJson.put("currency", randomEnum(AccountDetail.MyCurrency.class).toString());
+                accountJson.put("price", randomPrice());
 
-                JSONArray detailsJson = new JSONArray();
-                for (int j = 0; j < size / 2; j++) {
-                    JSONObject item = new JSONObject();
-                    item.put("currency", randomEnum(DetailData.MyCurrency.class).toString());
-                    item.put("sum", randomPrice());
-                    detailsJson.put(item);
-                }
-
-                userJson.put("details", detailsJson);
-
-                result.add(userJson);
+                result.add(accountJson);
             }
 
             return result;

@@ -3,17 +3,45 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	xmlns:tools="http://schemas.android.com/tools"
 	>
 
-	<androidx.recyclerview.widget.RecyclerView
-		android:id="@+id/details"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
+	<TextView
+		android:id="@+id/name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintBottom_toTopOf="@id/editName"
 		app:layout_constraintTop_toTopOf="parent"
-		app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+		app:layout_constraintBottom_toTopOf="@+id/description"
+		tools:text="@tools:sample/full_names"
+		android:hint="test2"
+		/>
+
+	<TextView
+		android:id="@+id/description"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/name"
+		app:layout_constraintBottom_toTopOf="@+id/price"
+		tools:text="@tools:sample/lorem/random"
+		android:maxLines="30"
+		android:hint="test"
+		/>
+
+	<TextView
+		android:id="@+id/price"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/description"
+		app:layout_constraintBottom_toTopOf="@+id/editName"
+		tools:text="@tools:sample/lorem/random"
+		android:maxLines="1"
+		android:hint="test"
 		/>
 
 	<com.google.android.material.textfield.TextInputEditText

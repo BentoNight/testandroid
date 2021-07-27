@@ -1,15 +1,14 @@
-package com.example.testtask;
+package com.example.testtask.accounts;
 
+import com.example.testtask.models.AccountDetail;
 import org.json.JSONObject;
-
 import java.util.List;
-
 import io.reactivex.Observable;
 
-public interface UserDetailContract {
+public interface AccountContract {
 
     interface View{
-        void showUsers(List<UserData> userData);
+        void showUsers(List<AccountDetail> accounts);
     }
 
     interface Presenter {
