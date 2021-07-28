@@ -4,19 +4,19 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.testtask.R;
-import com.example.testtask.models.AccountDetail;
+import com.example.testtask.models.accounts.AccountData;
 
 public class ViewHolderUsd extends BaseViewHolder {
     final TextView name, price;
 
     public ViewHolderUsd(View view) {
         super(view);
-        price = view.findViewById(R.id.price);
+        price = view  .findViewById(R.id.price);
         name = view.findViewById(R.id.name);
     }
 
     @Override
-    public void bind(AccountDetail accountDetail) {
+    public void bind(AccountData accountDetail) {
         price.setText(String.valueOf(accountDetail.getPrice()));
         name.setText(accountDetail.getName());
     }

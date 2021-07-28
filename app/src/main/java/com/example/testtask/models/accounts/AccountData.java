@@ -1,12 +1,12 @@
-package com.example.testtask.models;
+package com.example.testtask.models.accounts;
 
 import java.io.Serializable;
 
-public class AccountDetail implements Serializable {
+public class AccountData implements Serializable {
 
     public enum MyCurrency {
-        USD,
         RUB,
+        USD,
         EUR,
         UNKNOWN
     }
@@ -16,7 +16,7 @@ public class AccountDetail implements Serializable {
     private String name;
     private final String description;
 
-    public AccountDetail(String name, String description, MyCurrency currency, float price) {
+    public AccountData(String name, String description, MyCurrency currency, float price) {
         this.name = name;
         this.description = description;
         this.currency = currency;

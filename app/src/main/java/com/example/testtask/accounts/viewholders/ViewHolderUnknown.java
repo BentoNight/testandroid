@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.testtask.R;
-import com.example.testtask.models.AccountDetail;
+import com.example.testtask.models.accounts.AccountData;
 
 public class ViewHolderUnknown extends BaseViewHolder {
     final TextView name, price;
@@ -16,7 +16,7 @@ public class ViewHolderUnknown extends BaseViewHolder {
     }
 
     @Override
-    public void bind(AccountDetail accountDetail) {
+    public void bind(AccountData accountDetail) {
         price.setText(String.valueOf(accountDetail.getPrice()));
         name.setText(accountDetail.getName());
     }

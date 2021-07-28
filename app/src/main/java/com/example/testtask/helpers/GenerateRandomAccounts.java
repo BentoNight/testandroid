@@ -2,9 +2,8 @@ package com.example.testtask.helpers;
 
 import android.util.Log;
 
-import com.example.testtask.models.AccountDetail;
+import com.example.testtask.models.accounts.AccountData;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,7 +31,7 @@ public class GenerateRandomAccounts {
                 accountJson.put("id", RandomId());
                 accountJson.put("name", randomString(10));
                 accountJson.put("description", randomString(300));
-                accountJson.put("currency", randomEnum(AccountDetail.MyCurrency.class).toString());
+                accountJson.put("currency", randomEnum(AccountData.MyCurrency.class).toString());
                 accountJson.put("price", randomPrice());
 
                 result.add(accountJson);

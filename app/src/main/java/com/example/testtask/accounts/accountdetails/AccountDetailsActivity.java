@@ -1,4 +1,4 @@
-package com.example.testtask.accounts;
+package com.example.testtask.accounts.accountdetails;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testtask.R;
-import com.example.testtask.models.AccountDetail;
+import com.example.testtask.models.accounts.AccountData;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class AccountDetailsActivity extends AppCompatActivity {
@@ -25,9 +25,9 @@ public class AccountDetailsActivity extends AppCompatActivity {
 
         Bundle arguments = getIntent().getExtras();
 
-        AccountDetail accountDetail;
+        AccountData accountDetail;
         if (arguments != null) {
-            accountDetail = (AccountDetail) arguments.getSerializable(AccountDetail.class.getSimpleName());
+            accountDetail = (AccountData) arguments.getSerializable(AccountData.class.getSimpleName());
 
             name.setText(accountDetail.getName());
             editName.setText(accountDetail.getName());

@@ -13,7 +13,7 @@ import com.example.testtask.accounts.viewholders.ViewHolderEur;
 import com.example.testtask.accounts.viewholders.ViewHolderRub;
 import com.example.testtask.accounts.viewholders.ViewHolderUnknown;
 import com.example.testtask.accounts.viewholders.ViewHolderUsd;
-import com.example.testtask.models.AccountDetail;
+import com.example.testtask.models.accounts.AccountData;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -21,8 +21,7 @@ import java.util.List;
 
 public class AccountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<AccountDetail> accountDetails;
-    private final LayoutInflater inflater;
+    private final List<AccountData> accountDetails;
     private static final int RUB = 0;
     private static final int USD = 1;
     private static final int EUR = 2;
@@ -31,12 +30,11 @@ public class AccountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private final AccountAdapter.OnClickListener callback;
 
     public interface OnClickListener {
-        void onItemClicked(AccountDetail accountDetail);
+        void onItemClicked(AccountData accountDetail);
     }
 
-    public AccountAdapter(Context context, List<AccountDetail> accountDetails, OnClickListener callback) {
+    public AccountAdapter(List<AccountData> accountDetails, OnClickListener callback) {
         this.accountDetails = accountDetails;
-        this.inflater = LayoutInflater.from(context);
         this.callback = callback;
     }
 
@@ -62,7 +60,7 @@ public class AccountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
-        AccountDetail accountDetail = accountDetails.get(position);
+        AccountData accountDetail = accountDetails.get(position);
         BaseViewHolder viewHolder = (BaseViewHolder) holder;
         viewHolder.bind(accountDetail);
         viewHolder.itemView.setOnClickListener(v -> callback.onItemClicked(accountDetail));
@@ -70,7 +68,7 @@ public class AccountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public int getItemViewType(int position) {
-        AccountDetail.MyCurrency currency = accountDetails.get(position).getCurrency();
+        AccountData.MyCurrency currency = accountDetails.get(position).getCurrency();
         switch (currency) {
             case RUB:
                 return RUB;

@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.testtask.models.AccountDetail;
+import com.example.testtask.models.accounts.AccountData;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -15,5 +15,5 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
-    public abstract void bind(AccountDetail accountDetail);
+    public abstract void bind(AccountData accountDetail);
 }
