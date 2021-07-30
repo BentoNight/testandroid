@@ -18,14 +18,10 @@ public class AccountPresenter implements AccountContract.Presenter {
 
     @Override
     public void getUserDetails() {
-        CompositeDisposable compositeDisposable = new CompositeDisposable();
-
-        Disposable disposable = repository.getUserDetails()
+        repository.getUserDetails()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(view::showUsers);
 
-        compositeDisposable.add(disposable);
-        compositeDisposable.dispose();
     }
 }

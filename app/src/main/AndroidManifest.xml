@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.example.testtask"
 	>
-
+	<uses-feature android:name="android.hardware.camera.any" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 	<application
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
@@ -10,16 +14,19 @@
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
 		android:theme="@style/Theme.TestTask"
+		android:requestLegacyExternalStorage="true"
 		>
 		<activity android:name=".accounts.AccountActivity"/>
 		<activity android:name=".activities.SplashActivity">
+		</activity>
+		<activity android:name=".accounts.accountdetails.AccountDetailsActivity" />
+		<activity android:name=".accounts.accountdetails.camera.CameraActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".accounts.accountdetails.AccountDetailsActivity" />
 	</application>
 
 </manifest>

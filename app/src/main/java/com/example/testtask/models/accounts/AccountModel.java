@@ -21,7 +21,7 @@ public class AccountModel implements AccountContract.Repository {
             List<JSONObject> accountsJson = GenerateRandomAccounts.getRandomUserDetails();
 
             try {
-                Thread.sleep(10);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 subscriber.onError(ex);
             }
